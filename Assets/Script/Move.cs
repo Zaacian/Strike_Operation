@@ -9,6 +9,8 @@ public class Move : MonoBehaviour
 
     [SerializeField] private float speed;
 
+    [SerializeField] private float _rotationSpeed;
+
     private float xAxis;
     private float zAxis;
 
@@ -27,5 +29,11 @@ public class Move : MonoBehaviour
 
         Vector3 move = new Vector3(xAxis,0, zAxis);
         characterController.Move(move*Time.deltaTime*speed);
+
+        if( move != Vector3.zero)
+        {
+            Quaternion toRotation = Quaternion.LookRotation(move,Vector3.up);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation,toRotation,_rotationSpeed*Time.deltaTime);
+        }
     }
 }

@@ -1142,6 +1142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterController: {fileID: 2036447882}
   speed: 100
+  _rotationSpeed: 80
 --- !u!65 &2036447884
 BoxCollider:
   m_ObjectHideFlags: 0
